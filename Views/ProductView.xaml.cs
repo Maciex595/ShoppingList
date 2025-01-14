@@ -18,7 +18,6 @@ namespace ShoppingList.Views
             {
                 product.IsBought = e.Value;
                 OnProductStatusChanged?.Invoke(this, product);
-                // Notify MainPage to save changes
                 OnRequestSave?.Invoke(this, null);
             }
         }
@@ -33,7 +32,6 @@ namespace ShoppingList.Views
             if (BindingContext is Product product)
             {
                 product.Quantity++;
-                // Notify MainPage to save changes
                 OnRequestSave?.Invoke(this, null);
             }
         }
@@ -43,13 +41,12 @@ namespace ShoppingList.Views
             if (BindingContext is Product product && product.Quantity > 0)
             {
                 product.Quantity--;
-                // Notify MainPage to save changes
                 OnRequestSave?.Invoke(this, null);
             }
         }
 
         public event EventHandler<Product>? OnDeleteRequested;
         public event EventHandler<Product>? OnProductStatusChanged;
-        public event EventHandler? OnRequestSave; // Event to request saving
+        public event EventHandler? OnRequestSave;
     }
 }
