@@ -63,14 +63,13 @@ namespace ShoppingList.Views
                 };
                 productView.OnProductStatusChanged += (s, p) =>
                 {
-                    // Move the product to the bottom of the list if it's bought
                     _products.Remove(p);
                     _products.Add(p);
                     RefreshProductList();
                 };
                 productView.OnRequestSave += (s, _) =>
                 {
-                    _fileService.SaveProducts(_products); // Save changes
+                    _fileService.SaveProducts(_products);
                 };
                 ProductList.Children.Add(productView);
             }
@@ -86,7 +85,7 @@ namespace ShoppingList.Views
                 };
                 productView.OnRequestSave += (s, _) =>
                 {
-                    _fileService.SaveProducts(_products); // Save changes
+                    _fileService.SaveProducts(_products);
                 };
                 ProductList.Children.Add(productView);
             }
