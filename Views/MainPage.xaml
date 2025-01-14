@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="ShoppingList.Views.MainPage"
+             Title="Shopping List">
+
+    <Grid RowDefinitions="Auto,*" Padding="10">
+        <HorizontalStackLayout Grid.Row="0" Spacing="10">
+            <Entry x:Name="ProductNameEntry" 
+           Placeholder="Podaj nazwę produktu" 
+           HorizontalOptions="FillAndExpand"/>
+
+            <Entry x:Name="ProductWeightEntry" 
+           Placeholder="Podaj ilość w opakowaniu lub wagę w kilogramach" 
+           Keyboard="Numeric" 
+           HorizontalOptions="FillAndExpand"/>
+
+            <Entry x:Name="ProductQuantityEntry" 
+           Placeholder="Ilość przedmiotów" 
+           Keyboard="Numeric" 
+           HorizontalOptions="FillAndExpand"/>
+
+            <Button Text="Dodaj" 
+            Clicked="OnAddProduct" 
+            BackgroundColor="Purple" 
+            TextColor="White"/>
+        </HorizontalStackLayout>
+
+        <ScrollView Grid.Row="1">
+            <StackLayout x:Name="ProductList" Spacing="5"/>
+        </ScrollView>
+    </Grid>
+</ContentPage>
